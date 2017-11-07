@@ -1,0 +1,1073 @@
+﻿<Window
+    x:Class="eMapy.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bing="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+    xmlns:core="clr-namespace:eMapy.Core"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:eMapy.ViewModels"
+    xmlns:models="clr-namespace:eMapy.Models"
+    xmlns:views="clr-namespace:eMapy.Views"
+    x:Name="Window"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    Loaded="Window_Loaded"
+    Opacity="{Binding Options.ProgressBarAnimation, Converter={StaticResource BoolToOpacityConverter}}"
+    PreviewKeyDown="Window_PreviewKeyDown"
+    ResizeMode="CanResizeWithGrip"
+    WindowState="{Binding Options.WindowStateBool, Converter={StaticResource BoolToWindowStateConverter}}">
+
+    <Window.Style>
+        <StaticResource ResourceKey="WindowStyle" />
+    </Window.Style>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding CommandClosingWindow}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding CommandCadre}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Window.InputBindings>
+        <KeyBinding
+            Key="Delete"
+            Command="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main.AsyncCommandDeleteItem}"
+            CommandParameter="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main.SelectedEmapyPoint}" />
+        <KeyBinding Key="Add" Command="{Binding CommandZoomDown}" />
+        <KeyBinding Key="Back" Command="{Binding AsyncCommandRestoreLastItem}" />
+        <KeyBinding Key="Subtract" Command="{Binding CommandZoomUp}" />
+        <KeyBinding Key="Enter" Command="{Binding AsyncCommandChangeAdressButton}" />
+    </Window.InputBindings>
+
+    <Window.Resources>
+
+
+
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightColorKey}" Color="Azure" />
+
+        <DataTemplate x:Key="EmapyTemplatePushPinStartStop" DataType="models:EmapyPoint">
+
+            <bing:Pushpin
+                x:Name="StartStopPushpin"
+                bing:MapLayer.Position="{Binding Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Tag="{Binding}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main.CommandPreparePushpinToDrag}" CommandParameter="{Binding ElementName=StartStopPushpin}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <bing:Pushpin.Style>
+                    <StaticResource ResourceKey="PushpinStyleStartOrStop" />
+                </bing:Pushpin.Style>
+                <bing:Pushpin.ContextMenu>
+                    <ContextMenu DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+                        <MenuItem
+                            Command="{Binding CommandShowAdressGrid}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                            Header="Zmień adres"
+                            IsEnabled="{Binding Licence, Converter={StaticResource LicenceToEnabledConverter}}">
+                            <MenuItem.Icon>
+                                <Path
+                                    Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z"
+                                    Fill="{Binding Source={StaticResource Locator}, Path=Main.Licence, Converter={StaticResource LicenceToColourConverter}}"
+                                    Stretch="UniformToFill" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </bing:Pushpin.ContextMenu>
+                <bing:Pushpin.ToolTip>
+                    <ToolTip>
+                        <views:ToolTip ConfidenceLevel="{Binding Adress.ConfidenceLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </ToolTip>
+                </bing:Pushpin.ToolTip>
+            </bing:Pushpin>
+        </DataTemplate>
+
+        <DataTemplate x:Key="StandardTemplate" DataType="models:EmapyPoint">
+            <DataTemplate.Resources>
+                <ResourceDictionary Source="Resources/ColorsOfPoints.xaml" />
+            </DataTemplate.Resources>
+            <bing:Pushpin
+                x:Name="Pushpin"
+                bing:MapLayer.Position="{Binding Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Tag="{Binding}">
+
+                <ContentControl>
+                    <ContentControl.Style>
+                        <Style TargetType="ContentControl">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ShowMarkers}" Value="True">
+                                    <Setter Property="Content" Value="{Binding Marker}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ShowMarkers}" Value="False">
+                                    <Setter Property="Content" Value="{Binding Lp}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main.CommandPreparePushpinToDrag}" CommandParameter="{Binding ElementName=Pushpin}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseEnter">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource Locator}, Path=Main.CommandSetSelectedItem}" CommandParameter="{Binding}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseLeave">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource Locator}, Path=Main.CommandClearSelectedItem}" CommandParameter="{Binding}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <bing:Pushpin.Style>
+                    <StaticResource ResourceKey="PushpinStandart" />
+                </bing:Pushpin.Style>
+                <bing:Pushpin.ContextMenu>
+                    <ContextMenu DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+                        <MenuItem
+                            Command="{Binding AsyncCommandDeleteItem}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                            Header="Ukryj"
+                            InputGestureText="Delete"
+                            >
+                            <MenuItem.Icon>
+                                <Path
+                                    Data="M9.41,13L12,15.59L14.59,13L16,14.41L13.41,17L16,19.59L14.59,21L12,18.41L9.41,21L8,19.59L10.59,17L8,14.41L9.41,13M22,9A2,2 0 0,1 20,11H4A2,2 0 0,1 2,9V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V9M4,9H8V6H4V9M10,9H14V6H10V9M16,9H20V6H16V9Z"
+                                    Fill="{Binding Source={StaticResource Locator}, Path=Main.Licence, Converter={StaticResource LicenceToColourConverter}}"
+                                    Stretch="Uniform" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding CommandShowAdressGrid}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                            Header="Zmień adres"
+                            IsEnabled="{Binding Licence, Converter={StaticResource LicenceToEnabledConverter}}"
+                           >
+
+                            <MenuItem.Icon>
+                                <Path
+                                    Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z"
+                                    Fill="{Binding Source={StaticResource Locator}, Path=Main.Licence, Converter={StaticResource LicenceToColourConverter}}"
+                                    Stretch="Uniform" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding CommandSelectedContractor}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                            Header="Otwórz kartotekę"
+                            >
+                            <MenuItem.Icon>
+
+                                <Path
+                                    HorizontalAlignment="Center"
+                                    Data="M2,3H22C23.05,3 24,3.95 24,5V19C24,20.05 23.05,21 22,21H2C0.95,21 0,20.05 0,19V5C0,3.95 0.95,3 2,3M14,6V7H22V6H14M14,8V9H21.5L22,9V8H14M14,10V11H21V10H14M8,13.91C6,13.91 2,15 2,17V18H14V17C14,15 10,13.91 8,13.91M8,6A3,3 0 0,0 5,9A3,3 0 0,0 8,12A3,3 0 0,0 11,9A3,3 0 0,0 8,6Z"
+                                    Fill="{Binding Source={StaticResource Locator}, Path=Main.Licence, Converter={StaticResource LicenceToColourConverter}}"
+                                    Stretch="Uniform" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding AsyncCommandUpdateLocationInBufforAsync}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                            Header="Zapisz lokalizację">
+                            <MenuItem.Icon>
+
+                                <Path
+                                    HorizontalAlignment="Center"
+                                    Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"
+                                    Fill="#42A940"
+                                    Stretch="Uniform" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </bing:Pushpin.ContextMenu>
+            </bing:Pushpin>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="MainGrid" Background="{Binding BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <!--  MainProgressbar  -->
+            <!--  Grid z toggle buttons  -->
+            <!--  Menu  -->
+            <RowDefinition />
+            <!--  BINGMAP  -->
+            <!--  Grid z ZOOMDown, up, adresGrid  -->
+            <!--  Adress Grid  -->
+            <!--  DataGrid  -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="705" />
+            <!--  Adress Grid  -->
+            <!--  Datagrid  -->
+            <!--  Grid z toggle buttons  -->
+            <ColumnDefinition Width="9*" />
+            <!--  Bingmap Szerokosc ColumnSpan="5" ZoomDown,up  -->
+        </Grid.ColumnDefinitions>
+        <!--  AmIPymqijhRagSmhJbLYlh-u9J18JuZDnzlqgNDSROpssjc-M1wYSwEmv1ag8ilR  -->
+
+        <!--  gprxoLbUlCNNK5taN6pl~BlrDqAUUegoADPaDvnFgdQ~AhdU4No-YqMvE7TswpzX0R2Sn18j6IIhQcQbM6k389qoKV5I-7ohZ7DjEBkF8lJW  -->
+        <!--  AmblbCmIBmhvMQka6bLDTLSeGnODyRRQl7gap9_YLzMdYsc5jwPuDf2LsySSaLED  -->
+        <bing:Map
+            Name="BingMap"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            core:MapInteractivity.Cadre="{Binding Cadre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            AnimationLevel="Full"
+            Center="{Binding Center, Mode=OneWayToSource}"
+            Culture="pl-PL"
+            Mode="{Binding Mode, Converter={StaticResource BoolToMapModeConverter}}"
+            MouseMove="BingMap_MouseMove"
+            ViewChangeOnFrame="BingMap_ViewChangeOnFrame"
+            ZoomLevel="{Binding Options.Zoomlevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <bing:Map.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        Background="{Binding BackgroundBrush}"
+                        BorderBrush="{Binding BackgroundBrush}"
+                        Command="{Binding CommandAllowToChangeLocation}"
+                        Header="Pozwalaj na zmiane lokalizacji">
+                        <MenuItem.Icon>
+                            <Path
+                                Margin="2,-2,-2,-2"
+                                Data="M9.07743946676476E-09,4.31805768640244L4.68740335877841,8.86361158398516C4.68740335877841,8.86361158398516,16.3281249985376,-2.42451336648723,16.3281249985376,-2.42451336648723L14.0622100581796,-4.77304938341948 4.68740335877846,4.31805791992662 2.22656251699567,1.93164208562579z"
+                                Fill="#42A940"
+                                Stretch="Uniform"
+                                Stroke="#42A940"
+                                Visibility="{Binding Options.ChangingCoordsPermitted, Converter={StaticResource BoolVisibilityConverter}}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem
+                        Background="{Binding BackgroundBrush}"
+                        BorderBrush="{Binding BackgroundBrush}"
+                        Command="{Binding CommandChangeMarkerAndNumberView}"
+                        Header="Pokaż znaczniki">
+                        <MenuItem.Icon>
+                            <Path
+                                Margin="2,-2,-2,-2"
+                                Data="M9.07743946676476E-09,4.31805768640244L4.68740335877841,8.86361158398516C4.68740335877841,8.86361158398516,16.3281249985376,-2.42451336648723,16.3281249985376,-2.42451336648723L14.0622100581796,-4.77304938341948 4.68740335877846,4.31805791992662 2.22656251699567,1.93164208562579z"
+                                Fill="#42A940"
+                                Stretch="Uniform"
+                                Stroke="#42A940"
+                                Visibility="{Binding Options.ShowMarkers, Converter={StaticResource BoolVisibilityConverter}}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem
+                        Background="{Binding BackgroundBrush}"
+                        BorderBrush="{Binding BackgroundBrush}"
+                        Command="{Binding CommandShowHiddenPointsOnMap}"
+                        Header="Pokaż ukryte punkty na mapie"
+                        >
+                        <MenuItem.Icon>
+                            <Path
+                                Margin="2,-2,-2,-2"
+                                Data="M9.07743946676476E-09,4.31805768640244L4.68740335877841,8.86361158398516C4.68740335877841,8.86361158398516,16.3281249985376,-2.42451336648723,16.3281249985376,-2.42451336648723L14.0622100581796,-4.77304938341948 4.68740335877846,4.31805791992662 2.22656251699567,1.93164208562579z"
+                                Fill="#42A940"
+                                Stretch="Uniform"
+                                Stroke="#42A940">
+                                <Path.Visibility>
+                                    <MultiBinding Converter="{StaticResource LicenceBoolToVisiblityMultiConverter}">
+                                        <Binding Path="Main.Licence" Source="{StaticResource Locator}" />
+                                        <Binding Path="Main.Options.ShowHiddenPointsOnMap" Source="{StaticResource Locator}" />
+                                    </MultiBinding>
+                                </Path.Visibility>
+                            </Path>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding CommandChangeMapMode}"
+                        Header="Zmień wygląd mapy"
+                        IsCheckable="False"
+                         />
+                    <MenuItem
+                        Command="{Binding CommandCadre}"
+                        Header="Wykadruj mapę"
+                        IsCheckable="False"
+                         />
+                </ContextMenu>
+            </bing:Map.ContextMenu>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding CommandSetPushpinLocation}" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding AsyncCommandMapLoaded}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <bing:MapItemsControl
+                x:Name="UkrytePushpiny"
+                ItemsSource="{Binding HiddenPoints, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Visibility="{Binding Options.ShowHiddenPointsOnMap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolVisibilityConverter}}">
+                <bing:MapItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <bing:Pushpin Tag="{Binding}">
+                            <bing:Pushpin.Style>
+                                <StaticResource ResourceKey="HiddenPointStyle" />
+                            </bing:Pushpin.Style>
+                            <bing:Pushpin.ToolTip>
+                                <ToolTip Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" Opacity="0.9">
+                                    <views:ToolTip ConfidenceLevel="{Binding Adress.ConfidenceLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </ToolTip>
+                            </bing:Pushpin.ToolTip>
+                            <bing:Pushpin.ContextMenu>
+
+                                <ContextMenu DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main}">
+                                    <MenuItem
+                                        Command="{Binding AsyncCommandRestoreItem}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.Tag}"
+                                        Header="Przywróć"
+                                        InputGestureText="Backspace">
+                                        <MenuItem.Icon>
+                                            <Path
+                                                Margin="-1"
+                                                HorizontalAlignment="Center"
+                                                Data="M12,3A9,9 0 0,0 3,12H0L4,16L8,12H5A7,7 0 0,1 12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19C10.5,19 9.09,18.5 7.94,17.7L6.5,19.14C8.04,20.3 9.94,21 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3M14,12A2,2 0 0,0 12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12Z"
+                                                Fill="#42A940"
+                                                Stretch="Fill" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </bing:Pushpin.ContextMenu>
+                        </bing:Pushpin>
+                    </DataTemplate>
+                </bing:MapItemsControl.ItemTemplate>
+            </bing:MapItemsControl>
+            <bing:MapItemsControl ItemTemplate="{StaticResource EmapyTemplatePushPinStartStop}" ItemsSource="{Binding StartAndStopPoints, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <bing:MapItemsControl
+                x:Name="Pushpiny"
+                ItemTemplate="{StaticResource StandardTemplate}"
+                ItemsSource="{Binding PointsOnMap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <bing:MapItemsControl
+                x:Name="SelectedItem"
+                ItemTemplate="{StaticResource StandardTemplate}"
+                ItemsSource="{Binding SelectedPoints}" />
+
+            <bing:Map.Style>
+                <StaticResource ResourceKey="Map" />
+            </bing:Map.Style>
+        </bing:Map>
+        <views:CircularProgressBar
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Width="auto"
+            Height="auto"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            Radius="40"
+            SegmentColor="#42A940"
+            StrokeThickness="10"
+            Visibility="{Binding Options.ProgressBarAnimation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolVisibilityConverter}}" />
+        <Grid
+            x:Name="AdresGridAndZoomUpOut"
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="71"
+            Margin="0,0,15,60"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Button
+                Grid.Row="0"
+                Command="{Binding CommandZoomDown}"
+                Style="{StaticResource ButtonZoom}">
+                <Button.Content>
+                    <Path
+                        Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+                        Fill="#42A940"
+                        Stretch="Uniform" />
+                </Button.Content>
+            </Button>
+            <Button
+                Grid.Row="1"
+                Command="{Binding CommandZoomUp}"
+                Style="{StaticResource ButtonZoom}">
+                <Button.Content>
+                    <Path
+                        Data="M17,13H7V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+                        Fill="#42A940"
+                        Stretch="Uniform" />
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <Grid
+            x:Name="DataGridAndButtons"
+            Grid.Row="1"
+            Grid.Column="0"
+            Width="{Binding Licence, Converter={StaticResource LicenceToWidthConverter}, ConverterParameter=DataGrid}"
+            Height="auto"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Transparent">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!--  DataGrid 0  -->
+                <RowDefinition Height="31.2" />
+                <!--  Optymalizuj 1  -->
+                <RowDefinition Height="31.2" />
+                <!--  Wyznacz trase 2  -->
+                <RowDefinition Height="31.2" />
+                <!--  wyślij trase 3  -->
+                <RowDefinition Height="31.2" />
+                <!--  Pokaż listę kontrachentów 4  -->
+                <RowDefinition Height="31.2" />
+                <!--  wykadruj mape 5  -->
+                <RowDefinition Height="31.2" />
+                <!--  zwin menu 6  -->
+                <RowDefinition Height="44.2" />
+                <!--  Dystans 7  -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="KolumnaLewa" Width="5" />
+                <ColumnDefinition Name="KolumnaPrawa" Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <!--#region DatagGrid-->
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="auto"
+                Height="Auto"
+                BorderBrush="#9F9F9F"
+                BorderThickness="0,0,1,0">
+                <DataGrid
+                    x:Name="PointsOnMap"
+                    Margin="0"
+                    Background="{Binding BackgroundBrush}"
+                    BorderThickness="0"
+                    HorizontalGridLinesBrush="#9F9F9F"
+                    IsEnabled="{Binding Licence, Converter={StaticResource LicenceToEnabledConverter}}"
+                    IsSelected="False"
+                    MouseLeave="DataGridRow_MouseLeave"
+                    RowHeaderWidth="0"
+                    SelectedItem="{Binding SelectedEmapyPoint}"
+                    SelectionMode="Single"
+                    Style="{StaticResource DataGrid}"
+                    VerticalGridLinesBrush="#9F9F9F"
+                    VerticalScrollBarVisibility="Visible">
+
+                    <DataGrid.Resources>
+                        <Style TargetType="ScrollBar">
+                            <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="AllowDrop" Value="True" />
+                            <EventSetter Event="MouseLeave" Handler="DataGridRow_MouseLeave" />
+                            <Setter Property="ToolTip">
+                                <Setter.Value>
+                                    <views:ToolTip Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" ConfidenceLevel="{Binding Adress.ConfidenceLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </Setter.Value>
+                            </Setter>
+
+
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            x:Name="DataGridTextColumnLp"
+                            Width="24"
+                            Binding="{Binding Lp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            CanUserReorder="False"
+                            CanUserResize="False"
+                            CanUserSort="False"
+                            Header="Lp"
+                            SortMemberPath="Lp">
+
+                            <DataGridTextColumn.CellStyle>
+
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" Value="{Binding ElementName=PointsOnMap, Path=Background}" />
+                                    <Setter Property="BorderBrush" Value="#9F9F9F" />
+                                    <Setter Property="BorderThickness" Value="0,0,0,0" />
+                                    <EventSetter Event="MouseEnter" Handler="DataGridCell_MouseEnter" />
+                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="DataGridCell_PreviewMouseLeftButtonDown" />
+                                    <EventSetter Event="Drop" Handler="DataGridCell_Drop" />
+
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="Background" Value="{Binding ElementName=PointsOnMap, Path=Background}" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Height" Value="20" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,1" />
+                                    <Setter Property="BorderBrush" Value="#9F9F9F" />
+                                    <Setter Property="FontSize" Value="13" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="170"
+                            Binding="{Binding Name, Mode=OneTime}"
+                            CanUserReorder="False"
+                            CanUserResize="True"
+                            CanUserSort="False"
+                            FontSize="14"
+                            IsReadOnly="False">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <LinearGradientBrush>
+                                                        <LinearGradientBrush.GradientStops>
+                                                            <GradientStop Offset="0" Color="DarkSeaGreen" />
+                                                            <GradientStop Offset="0.4" Color="LightGray" />
+                                                            <GradientStop Offset="0.7" Color="Honeydew" />
+                                                        </LinearGradientBrush.GradientStops>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                         
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                    <Setter Property="BorderBrush" Value="White" />
+                                    <Setter Property="Background" Value="{Binding ElementName=PointsOnMap, Path=Background}" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                                    <EventSetter Event="MouseEnter" Handler="DataGridCell_MouseEnter" />
+                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="DataGridCell_PreviewMouseLeftButtonDown" />
+                                    <EventSetter Event="Drop" Handler="DataGridCell_Drop" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Content" Value="Kontrahent" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="Background" Value="{Binding ElementName=PointsOnMap, Path=Background}" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,1" />
+                                    <Setter Property="BorderBrush" Value="#9F9F9F" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="">
+                            <DataGridTemplateColumn.CellStyle>
+                                <Style>
+                                    <EventSetter Event="Mouse.PreviewMouseDown" Handler="CheckBox_PreviewMouseLeftButtonDown" />
+                                </Style>
+                            </DataGridTemplateColumn.CellStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox
+                                        Background="{Binding ElementName=PointsOnMap, Path=Background}"
+                                        BorderThickness="0"
+                                        IsChecked="{Binding IsFixed, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                        IsEnabled="{Binding Source={StaticResource Locator}, Path=Main.Options.CheckBoxesEnabled}">
+                                        <CheckBox.Style>
+                                            <StaticResource ResourceKey="CheckBoxStyle" />
+                                        </CheckBox.Style>
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="{Binding ElementName=PointsOnMap, Path=Background}" />
+                                    <Setter Property="BorderThickness" Value="0,0,1,1" />
+                                    <Setter Property="BorderBrush" Value="#9F9F9F" />
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.Header>
+                                <Border BorderBrush="White" BorderThickness="0">
+                                    <Path
+                                        Margin="4,0,4,0"
+                                        Data="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z"
+                                        Fill="Black"
+                                        Stretch="Uniform" />
+                                    <Border.ToolTip>
+                                        <StackPanel Background="{Binding ElementName=PointsOnMap, Path=Background}">
+                                            <TextBlock FontWeight="Bold">
+                                                Zablokuj zmianę kolejności punktu na liście podczas optymalizacji trasy.
+                                            </TextBlock>
+                                            <TextBlock FontWeight="Bold">
+                                                Pamiętaj że każdy zablokowany punkt nie jest uwzględniany w optymalizacji.
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Border.ToolTip>
+                                </Border>
+                            </DataGridTemplateColumn.Header>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Closed">
+                                    <i:InvokeCommandAction Command="{Binding CommandSetMouseEnterActionsOn}" />
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="Opened">
+                                    <i:InvokeCommandAction Command="{Binding CommandSetMouseEnterActionsOff}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <MenuItem
+                                Command="{Binding CommandMoveUp}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="Przesuń w górę">
+                                <MenuItem.Icon>
+                                    <Path
+                                        Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
+                                        Fill="#42A940"
+                                        Stretch="Fill" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem
+                                Command="{Binding CommandShowAdressGrid}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="Zmień adres kontrahenta">
+                                <MenuItem.Icon>
+                                    <Path
+                                        Data="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,14.5 12,18 12,18C12,18 8.2,14.5 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M12,10A1.5,1.5 0 0,0 10.5,11.5A1.5,1.5 0 0,0 12,13A1.5,1.5 0 0,0 13.5,11.5A1.5,1.5 0 0,0 12,10Z"
+                                        Fill="#42A940"
+                                        Stretch="Fill" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding AsyncCommandDeleteItem}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="Ukryj "
+                                InputGestureText="Delete">
+
+                                <MenuItem.Icon>
+                                    <Path
+                                        Data="M9.41,13L12,15.59L14.59,13L16,14.41L13.41,17L16,19.59L14.59,21L12,18.41L9.41,21L8,19.59L10.59,17L8,14.41L9.41,13M22,9A2,2 0 0,1 20,11H4A2,2 0 0,1 2,9V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V9M4,9H8V6H4V9M10,9H14V6H10V9M16,9H20V6H16V9Z"
+                                        Fill="#42A940"
+                                        Stretch="Fill" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding CommandSelectedContractor}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="Otwórz kartotekę">
+                                <MenuItem.Icon>
+
+                                    <Path
+                                        HorizontalAlignment="Center"
+                                        Data="M2,3H22C23.05,3 24,3.95 24,5V19C24,20.05 23.05,21 22,21H2C0.95,21 0,20.05 0,19V5C0,3.95 0.95,3 2,3M14,6V7H22V6H14M14,8V9H21.5L22,9V8H14M14,10V11H21V10H14M8,13.91C6,13.91 2,15 2,17V18H14V17C14,15 10,13.91 8,13.91M8,6A3,3 0 0,0 5,9A3,3 0 0,0 8,12A3,3 0 0,0 11,9A3,3 0 0,0 8,6Z"
+                                        Fill="#42A940"
+                                        Stretch="Uniform" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Click="MenuItem_OnClick"
+                                DataContext="{Binding}"
+                                Header="Pokaż na mapie"
+                                InputGestureText="Spacja"
+                                IsEnabled="{Binding Licence, Converter={StaticResource LicenceToEnabledConverter}}">
+                                <MenuItem.Icon>
+                                    <Path
+                                        Data="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+                                        Fill="#42A940"
+                                        Stretch="Fill" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding CommandMoveDown}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="Przesuń w dół ">
+                                <MenuItem.Icon>
+                                    <Path
+                                        Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+                                        Fill="#42A940"
+                                        Stretch="Fill" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+            </Border>
+            <Button
+                x:Name="BtnZwin"
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderThickness="1,1,1,0"
+                >
+
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="DataGridAndButtons"
+                                    Storyboard.TargetProperty="Width"
+                                    To="5"
+                                    Duration="0:0:0.400" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="OptionsMenu"
+                                    Storyboard.TargetProperty="Width"
+                                    To="5"
+                                    Duration="0:0:0.400" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="AdresGrid"
+                                    Storyboard.TargetProperty="Height"
+                                    To="0"
+                                    Duration="0:0:0.400" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard>
+                            <Storyboard />
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+                <Button.Style>
+                    <StaticResource ResourceKey="ButtonStyle" />
+                </Button.Style>
+
+                <Grid Margin="5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Path
+                        Grid.Column="0"
+                        Margin="5"
+                        Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                        Fill="#42A940"
+                        Stretch="Uniform" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="6,0"
+                        VerticalAlignment="Center"
+                        FontSize="14">
+                        Zwiń menu
+                    </TextBlock>
+                </Grid>
+            </Button>
+            <views:ButtonBase
+                x:Name="BtnOptymalizuj"
+                Grid.Row="2"
+                Grid.Column="1"
+                
+                IconPath="M3,13.5L2.25,12H7.5L6.9,10.5H2L1.25,9H9.05L8.45,7.5H1.11L0.25,6H4A2,2 0 0,1 6,4H18V8H21L24,12V17H22A3,3 0 0,1 19,20A3,3 0 0,1 16,17H12A3,3 0 0,1 9,20A3,3 0 0,1 6,17H4V13.5H3M19,18.5A1.5,1.5 0 0,0 20.5,17A1.5,1.5 0 0,0 19,15.5A1.5,1.5 0 0,0 17.5,17A1.5,1.5 0 0,0 19,18.5M20.5,9.5H18V12H22.46L20.5,9.5M9,18.5A1.5,1.5 0 0,0 10.5,17A1.5,1.5 0 0,0 9,15.5A1.5,1.5 0 0,0 7.5,17A1.5,1.5 0 0,0 9,18.5Z"
+                IsEnabled="{Binding Options.ProgressBarAnimation, Converter={StaticResource BoolInverter}}"
+                MyCommand="{Binding AsyncCommandOptymalization}"
+                PathSize="5"
+                RightText="Optymalizuj trasę">
+            </views:ButtonBase>
+            <views:ButtonBase
+                x:Name="BtnSendToGoogle"
+                Grid.Row="4"
+                Grid.Column="1"
+                IconPath="M5,4A2,2 0 0,0 3,6V16.29L11.18,8.11C11.06,7.59 11,7.07 11,6.53C11,5.62 11.2,4.76 11.59,4H5M18,21A2,2 0 0,0 20,19V11.86C19.24,13 18.31,14.21 17.29,15.5L16.5,16.5L15.72,15.5C14.39,13.85 13.22,12.32 12.39,10.91C12.05,10.33 11.76,9.76 11.53,9.18L7.46,13.25L15.21,21H18M3,19A2,2 0 0,0 5,21H13.79L6.75,13.96L3,17.71V19M16.5,15C19.11,11.63 21,9.1 21,6.57C21,4.05 19,2 16.5,2C14,2 12,4.05 12,6.57C12,9.1 13.87,11.63 16.5,15M18.5,6.5A2,2 0 0,1 16.5,8.5A2,2 0 0,1 14.5,6.5A2,2 0 0,1 16.5,4.5A2,2 0 0,1 18.5,6.5Z"
+                IsEnabled="{Binding Options.ProgressBarAnimation, Converter={StaticResource BoolInverter}}"
+                MyCommand="{Binding CommandSendToGoogle}"
+                PathSize="5"
+                RightText="Wyślij trasę" />
+
+            <views:ButtonBase
+                x:Name="BtnWyznaczTrase"
+                Grid.Row="3"
+                Grid.Column="1"
+                IconPath="M18.1,4.8C18,4.3 17.6,4 17.1,4H13L13.2,7H10.8L11,4H6.8C6.3,4 5.9,4.4 5.8,4.8L3.1,18.8C3,19.4 3.5,20 4.1,20H10L10.3,15H13.7L14,20H19.8C20.4,20 20.9,19.4 20.8,18.8L18.1,4.8M10.4,13L10.6,9H13.2L13.4,13H10.4Z"
+                IsEnabled="{Binding Options.ProgressBarAnimation, Converter={StaticResource BoolInverter}}"
+                MyCommand="{Binding AsyncCommandDrawRoad}"
+                PathSize="5"
+                RightText="Pokaż trasę" />
+
+            <views:ButtonBase
+                x:Name="ListaKontrahentów"
+                Grid.Row="5"
+                Grid.Column="1"
+                IconPath="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z"
+                MyCommand="{Binding CommandContractorList}"
+                PathSize="6"
+                RightText="Pokaż listę kontrahentów">
+                <views:ButtonBase.IsEnabled>
+                    <MultiBinding Converter="{StaticResource BoolToEnabledMultiConverter}">
+                        <Binding Path="Options.ProgressBarAnimation" />
+                        <Binding Path="PointsOnMap.Count" />
+                    </MultiBinding>
+                </views:ButtonBase.IsEnabled>
+            </views:ButtonBase>
+
+            <views:ButtonBase
+                x:Name="BtnCadre"
+                Grid.Row="6"
+                Grid.Column="1"
+                IconPath="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+                MyCommand="{Binding CommandCadre}"
+                PathSize="5"
+                RightText="Wykadruj mapę" />
+
+            <views:BorderWithDistanceAndDuration
+                x:Name="BorderWithDistanceAndDuration"
+                Grid.Row="7"
+                Grid.Column="1"
+                
+                />
+
+            <Border
+                x:Name="RozwinMenu"
+                Grid.Row="0"
+                Grid.RowSpan="8"
+                Grid.Column="0"
+                Style="{StaticResource BorderReactangle}"
+                >
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="DataGridAndButtons"
+                                    Storyboard.TargetProperty="Width"
+                                    To="250"
+                                    Duration="0:0:0.400" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="OptionsMenu"
+                                    Storyboard.TargetProperty="Width"
+                                    To="240"
+                                    Duration="0:0:0.400" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="AdresGrid"
+                                    Storyboard.TargetProperty="Height"
+                                    To="75"
+                                    Duration="0:0:0.400" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+            </Border>
+
+            <!--#endregion-->
+        </Grid>
+        <Border
+            x:Name="AdresGrid"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Width="auto"
+            Height="75"
+            Background="{Binding BackgroundBrush}"
+            Visibility="{Binding Options.AdressGridVisibility, Converter={StaticResource BoolVisibilityConverter}}"
+            Style="{StaticResource AdressGrid}">
+            
+            <Grid>
+                <Grid
+                    Width="auto"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Right"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Command="{Binding CommandCloseAdressGrid}"
+                        Style="{StaticResource ButtonStyle}">
+                        <Path
+                            Margin="2"
+                            Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"
+                            Fill="Black"
+                            Stretch="UniformToFill" />
+                    </Button>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        Background="{Binding BackgroundBrush}"
+                        FontSize="16"
+                        Text="Wpisz adres:" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Width="465"
+                        Height="25"
+                        FontWeight="Bold"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Background="{Binding BackgroundBrush}"
+                        BorderBrush="#9F9F9F"
+                        FontSize="16"
+                        Opacity="0.85"
+                        Text="{Binding AdresGridPoint.MapyAdress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Width="465"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        BorderThickness="0"
+                        Command="{Binding AsyncCommandChangeAdressButton}"
+                        CommandParameter="{Binding AdresGridPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Content="Zmień adres"
+                        FontSize="16"
+                        Style="{StaticResource ButtonChangeAdress}" >
+
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+        <ToggleButton
+            x:Name="PokazUkrytePunkty"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="222"
+            HorizontalAlignment="Right"
+            Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}"
+            BorderBrush="#9F9F9F"
+            Content="Ukryte punkty"
+            FontSize="14"
+            IsEnabled="{Binding Licence, Converter={StaticResource LicenceToEnabledConverter}}"
+            Opacity="0.85"
+            >
+            <ToggleButton.Triggers>
+                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HiddenPoints" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                Storyboard.TargetName="HiddenPoints"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0.85"
+                                Duration="0:0:0.400" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetName="HiddenPoints"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0"
+                                Duration="0:0:0.400" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HiddenPoints" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.400" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ToggleButton.Triggers>
+        </ToggleButton>
+
+        <views:OptionsMenu
+            x:Name="OptionsMenu"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="{Binding Licence, Converter={StaticResource LicenceToWidthConverter}, ConverterParameter=Ustawienia}"
+            Height="auto"
+            HorizontalAlignment="Left" />
+
+        <Border
+            x:Name="HiddenPoints"
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="{Binding ElementName=HiddenPointsGrid, Path=Width}"
+            Height="{Binding ElementName=HiddenPointsGrid, Path=Height}"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Right"
+            BorderThickness="1,1,3,1"
+            Opacity="0"
+            Style="{StaticResource HiddenPointsBorder}"
+            Visibility="Hidden">
+            <DataGrid
+                x:Name="HiddenPointsGrid"
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="222"
+                Height="auto"
+                Margin="0,0,0,0"
+                HorizontalContentAlignment="Right"
+                BorderThickness="0,0,0,0"
+                GridLinesVisibility="None"
+                HeadersVisibility="None"
+                HorizontalScrollBarVisibility="Disabled"
+                ItemsSource="{Binding HiddenPoints, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                RowHeaderWidth="0"
+                VerticalScrollBarVisibility="Auto">
+
+                <DataGrid.Resources>
+                    <Style TargetType="ScrollBar">
+                        <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+                        <Setter Property="Foreground" Value="{Binding BackgroundBrush}" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Background" Value="{Binding ElementName=HiddenPointsGrid, Path=Background}" />
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Style>
+                    <StaticResource ResourceKey="HiddenDataGrid" />
+                </DataGrid.Style>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="30">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Width="auto"
+                                    Height="auto"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Background="{Binding ElementName=HiddenPointsGrid, Path=Background}"
+                                    BorderBrush="White"
+                                    Command="{Binding DataContext.AsyncCommandRestoreItem, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
+                                    CommandParameter="{Binding}">
+                                    <Path
+                                        Grid.Column="0"
+                                        Data="M12,3A9,9 0 0,0 3,12H0L4,16L8,12H5A7,7 0 0,1 12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19C10.5,19 9.09,18.5 7.94,17.7L6.5,19.14C8.04,20.3 9.94,21 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3M14,12A2,2 0 0,0 12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12Z"
+                                        Fill="#42A940"
+                                        Stretch="UniformToFill" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn
+                        Width="171"
+                        CanUserReorder="False"
+                        CanUserResize="False"
+                        CanUserSort="False"
+                        IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1">
+                                    <TextBlock
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Text="{Binding Name, Mode=TwoWay}" />
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Window>

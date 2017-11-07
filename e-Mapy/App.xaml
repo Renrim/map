@@ -1,0 +1,490 @@
+﻿<Application
+    x:Class="eMapy.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bing="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+    xmlns:converters="clr-namespace:eMapy.Converters"
+    xmlns:core="clr-namespace:eMapy.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:views="clr-namespace:eMapy.Views"
+    xmlns:vm="clr-namespace:eMapy.ViewModels"
+    Startup="Application_Startup"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <vm:ViewModelLocator x:Key="Locator" />
+
+        <converters:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
+        <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+        <converters:KindToBoolConverter x:Key="KindToBoolConverter" />
+        <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+        <converters:BoolToWindowState x:Key="BoolToWindowStateConverter" />
+        <converters:BoolToMapMode x:Key="BoolToMapModeConverter" />
+        <converters:BoolInverter x:Key="BoolInverter" />
+        <converters:IntBoolToEnabledMultiConverter x:Key="BoolToEnabledMultiConverter" />
+        <converters:LicenceToEnabledConverter x:Key="LicenceToEnabledConverter" />
+        <converters:LicenceBoolToVisiblityMultiConverter x:Key="LicenceBoolToVisiblityMultiConverter" />
+        <converters:LicenceToVisibilityConverter x:Key="LicenceToVisibilityConverter" />
+        <converters:LicenceToColourConverter x:Key="LicenceToColourConverter" />
+        <converters:BoolsToVisibilityMultiConverter x:Key="BoolsToVisibilityMultiConverter" />
+        <converters:LicenceToWidthConverter x:Key="LicenceToWidthConverter" />
+
+        <Style x:Key="HiddenPointsSourceStyle" TargetType="{x:Type bing:MapItemsControl}">
+            <Setter Property="ItemsSource" Value="{Binding HiddenPoints, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Options.ShowHiddenPointsOnMap}" Value="False">
+                    <Setter Property="ItemsSource" Value="" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type MenuItem}">
+            <Setter Property="BorderBrush" Value="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" />
+
+            <Setter Property="Background" Value="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style TargetType="{x:Type ContextMenu}">
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+
+            <Setter Property="Background" Value="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type ToolTip}">
+            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Background" Value="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+        </Style>
+
+        <Style x:Key="HiddenPointStyle" TargetType="{x:Type bing:Pushpin}">
+
+            <Setter Property="Opacity" Value="0.40" />
+            <Setter Property="Background" Value="Gray" />
+            <Setter Property="bing:MapLayer.Position" Value="{Binding Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Setter Property="Content" Value="U" />
+        </Style>
+
+        <Style x:Key="PushpinStyleStartOrStop" TargetType="{x:Type bing:Pushpin}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Rodzaj, Converter={StaticResource KindToBoolConverter}}" Value="Stop">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type bing:Pushpin}">
+                                <Image Source="Images/marker_home_stop.png" Stretch="Fill" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="Black" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="18" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Rodzaj, Converter={StaticResource KindToBoolConverter}}" Value="Start">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type bing:Pushpin}">
+                                <Image Source="Images/marker_home_start.png" Stretch="Fill" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="Black" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="18" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
+            <Setter Property="Width" Value="950" />
+            <Setter Property="Height" Value="930" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Title" Value="eMapy" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding WindowStateBool}" Value="True">
+                    <Setter Property="WindowState" Value="Minimized" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+        <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="Height" Value="auto" />
+            <Setter Property="Width" Value="35" />
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource MyFocusVisualStyte}" />
+            <Setter Property="Background" Value="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}" />
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <BulletDecorator>
+                            <BulletDecorator.Bullet>
+                                <Grid
+                                    Width="{Binding RelativeSource={RelativeSource Self}, Path=Height, UpdateSourceTrigger=PropertyChanged}"
+                                    Height="{TemplateBinding Height}"
+                                    Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}"
+                                    ShowGridLines="False">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*" />
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="4*" />
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="4*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Border
+                                        Name="MainBorder"
+                                        Grid.RowSpan="9"
+                                        Grid.ColumnSpan="9"
+                                        Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}"
+                                        BorderThickness="0"
+                                        CornerRadius="4" />
+
+                                    <Border
+                                        Name="InnerBorder"
+                                        Grid.Row="2"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="5"
+                                        BorderBrush="White"
+                                        BorderThickness="0" />
+
+                                    <Path
+                                        Name="InnerPath"
+                                        Grid.Row="2"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="5"
+                                        Data="M31,5 L19.5,5 19.5,19.5 34.5,19.5 34.5, 11.75"
+                                        Stretch="Fill"
+                                        Stroke="#808080" />
+
+                                    <Path
+                                        Name="CheckMark"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="5"
+                                        Data="M9.07743946676476E-09,4.31805768640244L4.68740335877841,8.86361158398516C4.68740335877841,8.86361158398516,16.3281249985376,-2.42451336648723,16.3281249985376,-2.42451336648723L14.0622100581796,-4.77304938341948 4.68740335877846,4.31805791992662 2.22656251699567,1.93164208562579z"
+                                        Fill="#42A940"
+                                        Opacity="0"
+                                        Stretch="Uniform"
+                                        Stroke="#42A940" />
+
+                                    <Path
+                                        Name="InderminateMark"
+                                        Grid.Row="4"
+                                        Grid.Column="3"
+                                        Data="M0,4 L1,5 5,1 4,0"
+                                        Fill="#808080"
+                                        Opacity="0"
+                                        Stretch="Fill"
+                                        StrokeThickness="0" />
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter
+                                Margin="4,0,4,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="CheckMark"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="1"
+                                                Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="CheckMark"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="0"
+                                                Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Indeterminate">
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="InderminateMark"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="1"
+                                                Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </BulletDecorator>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="InnerBorder" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="MainBorder" Property="Background" Value="Lavender" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="CheckMark" Property="Fill" Value="#cccccc" />
+                                <Setter TargetName="CheckMark" Property="Stroke" Value="#cccccc" />
+                                <Setter TargetName="InderminateMark" Property="Fill" Value="#cccccc" />
+                                <Setter TargetName="InnerBorder" Property="BorderBrush" Value="#cccccc" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonChangeAdress" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="BorderThickness" Value="0,1,1,0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="Snow" />
+                                    <GradientStop Offset="0.4" Color="LightGray" />
+                                    <GradientStop Offset="0.7" Color="Azure" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="FontWeight" Value="Bold" />
+
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="BorderThickness" Value="0,1,1,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"                          
+                            IsEnabled="{TemplateBinding IsEnabled}"
+                            Visibility="{TemplateBinding Visibility}">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="Snow" />
+                                    <GradientStop Offset="0.4" Color="LightGray" />
+                                    <GradientStop Offset="0.7" Color="AliceBlue" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="Cornsilk" />
+                                    <GradientStop Offset="0.4" Color="Gray" />
+                                    <GradientStop Offset="0.7" Color="BlanchedAlmond" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="DataGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="BorderThickness" Value="1,1,0,0" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="ItemsSource" Value="{Binding PointsOnMap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Setter Property="Height" Value="217" />
+            <Setter Property="SelectionMode" Value="Single" />
+
+
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Options.IsDataGridOff}" Value="False">
+                    <Setter Property="ItemsSource" Value="{Binding PointsOnMap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Options.IsDataGridOff}" Value="True">
+                    <Setter Property="ItemsSource" Value="{Binding Lp}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="HiddenDataGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="BorderThickness" Value="1,1,0,0" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Visible" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="SelectionMode" Value="Single" />
+        </Style>
+
+        <Style x:Key="ButtonZoom" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="35" />
+        </Style>
+
+        <Style x:Key="BorderReactangle" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="5" />
+            <Setter Property="Visibility" Value="Visible" />
+            <Setter Property="BorderBrush" Value="#42A940" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+        <Style x:Key="HiddenPointsBorder" TargetType="{x:Type Border}">
+
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="Height" Value="auto" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+
+
+        <Style x:Key="ColumnHeaderButton" TargetType="DataGridColumnHeader">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Width="auto" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="Test" />
+                            <Button
+                                Width="16"
+                                Height="16"
+                                VerticalAlignment="Center"
+                                Content="dsadad" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="AdressGrid" TargetType="{x:Type Border}">
+
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <Style x:Key="Map" TargetType="{x:Type bing:Map}">
+            <Setter Property="Language" Value="pl-PL" />
+            <Setter Property="core:MapInteractivity.RouteLineLayer" Value="{Binding MapLayer}" />
+            <Setter Property="core:MapInteractivity.RouteResult" Value="{Binding RouteResult}" />
+        </Style>
+
+        <Style x:Key="BorderVisibility" TargetType="{x:Type Border}">
+            <Setter Property="Visibility" Value="{Binding Options.GridVisibility, Converter={StaticResource BoolVisibilityConverter}}" />
+            <Setter Property="BorderBrush" Value="#9F9F9F" />
+            <Setter Property="BorderThickness" Value="1,0,1,1" />
+            <Setter Property="Opacity" Value="0.85" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Licence}" Value="Demo">
+                    <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Licence}" Value="Full">
+                    <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Licence}" Value="Basic">
+                    <Setter Property="Background" Value="{Binding BackgroundBrush}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MenuChangeMarkersView" TargetType="{x:Type MenuItem}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ShowMarkers}" Value="True">
+                    <Setter Property="IsChecked" Value="True" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ShowMarkers}" Value="false">
+                    <Setter Property="IsChecked" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MenuItemAllowChangeLocation" TargetType="{x:Type MenuItem}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ChangingCoordsPermitted}" Value="True">
+                    <Setter Property="IsChecked" Value="True" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Source={StaticResource Locator}, Path=Main.Options.ChangingCoordsPermitted}" Value="false">
+                    <Setter Property="IsChecked" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ReactangleVisibility" TargetType="{x:Type Rectangle}">
+            <Setter Property="Visibility" Value="{Binding Options.ReactangleAndDistanceTimeVisibility, Converter={StaticResource BoolVisibilityConverter}}" />
+        </Style>
+
+        <Style x:Name="FontFamily" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Helvetica" />
+        </Style>
+    </Application.Resources>
+</Application>

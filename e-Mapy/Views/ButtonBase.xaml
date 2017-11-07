@@ -1,0 +1,47 @@
+﻿<UserControl
+    x:Class="eMapy.Views.ButtonBase"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:eMapy.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Me"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d"
+    >
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightGray" />
+    </UserControl.Resources>
+
+    <Button
+       
+        Command="{Binding MyCommand, ElementName=Me}">
+        
+        <Button.Style>
+            <StaticResource ResourceKey="ButtonStyle" />
+        </Button.Style>
+
+        <Grid Margin="5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Path
+                Grid.Column="0"
+                Margin="{Binding PathSize, ElementName=Me}"
+                Data="{Binding IconPath, ElementName=Me}"
+                Fill="{Binding Source={StaticResource Locator}, Path=Main.Licence, Converter={StaticResource LicenceToColourConverter}}"
+                Stretch="Uniform" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="6,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="{Binding RightText, ElementName=Me}" />
+        </Grid>
+
+
+    </Button>
+</UserControl>

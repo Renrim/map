@@ -1,0 +1,132 @@
+﻿<UserControl
+    x:Class="eMapy.Views.ToolTip"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:eMapy.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Mee"
+    Margin="-3"
+    Background="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}"
+    BorderBrush="{Binding Source={StaticResource Locator}, Path=Main.BackgroundBrush}"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <TextBlock
+            x:Name="TextBlock1"
+            HorizontalAlignment="Center"
+            FontSize="15"
+            FontWeight="Bold"
+            TextWrapping="Wrap"
+            Visibility="{Binding Name, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsHidden}" Value="False">
+                            <Setter Property="Text" Value="{Binding Name}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsHidden}" Value="True">
+                            <Setter Property="Text" Value="{Binding Name, StringFormat=Ukryty punkt: {0}}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <StackPanel Orientation="Horizontal" Visibility="{Binding SymfoniaAdress, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock
+                x:Name="FontSizeProp"
+                FontSize="13"
+                Text="Adres: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding SymfoniaAdress}" />
+        </StackPanel>
+
+        <StackPanel
+            x:Name="mapyPanel"
+            Orientation="Horizontal"
+            Visibility="Visible">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="Lokalizacja punktu: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding MapyAdress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <!--<StackPanel Visibility="{Binding Adress.FlatNumber, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Numer mieszkania: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.FlatNumber}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.PostCode, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Kod pocztowy: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.PostCode}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.City, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Miasto: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.City}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.Wojewodztwo, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Województwo: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.Wojewodztwo}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.HouseNumber, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Numer domu: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.HouseNumber}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.PostPlace, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Poczta: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.PostPlace}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+
+        <!--<StackPanel Orientation="Horizontal" Visibility="{Binding Catalog, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="Katalog: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding Catalog}" />
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding Adress.TypeOfAdress, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Rodzaj adresu: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding Adress.TypeOfAdress}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+        <StackPanel Orientation="Horizontal" Visibility="{Binding Marker, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="Znacznik: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding Marker}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Visibility="{Binding Email, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="SymfoniaAdress e-mail: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding Email}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Visibility="{Binding PhoneNumber, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="Numer telefonu: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding PhoneNumber}" />
+        </StackPanel>
+
+        <!--<StackPanel Orientation="Horizontal" Visibility="{Binding Adress.ConfidenceLevel, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}">
+
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="Dokładność punktu: " />
+            <TextBlock FontSize="{Binding ElementName=FontSizeProp, Path=FontSize}" Text="{Binding Adress.ConfidenceLevel}" />
+        </StackPanel>-->
+
+        <!--<StackPanel Visibility="{Binding SymfoniaKod, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"  Orientation="Horizontal">
+
+            <TextBlock Text="Kod: " FontSize="14"></TextBlock>
+            <TextBlock Text="{Binding SymfoniaKod}" FontSize="14" ></TextBlock>
+        </StackPanel>-->
+    </StackPanel>
+</UserControl>

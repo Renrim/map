@@ -1,0 +1,124 @@
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\SqlServerSpatial110.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Images\earth v1.png
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\protobuf-net.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\EntityFramework.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.exe.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\protobuf-net.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.dll.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\EntityFramework.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csprojResolveAssemblyReference.cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.g.resources
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.CoreCompileInputs.cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.Properties.Resources.resources
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.GenerateResource.Cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.exe.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\System.Windows.Interactivity.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\SqlServerSpatial110.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Images\earth v1.png
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\StartupChooser.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\System.Windows.Interactivity.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\protobuf-net.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\EntityFramework.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy1.exe.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\eMapy.exe.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\protobuf-net.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\DataLayer.dll.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\bin\Release\EntityFramework.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csprojResolveAssemblyReference.cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.g.resources
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.Properties.Resources.resources
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.GenerateResource.Cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.CoreCompileInputs.cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\StartupChooser\obj\Release\StartupChooser.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Images\earth v1.png
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe.config
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\StartupChooser.exe
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\StartupChooser.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\eMapy.exe
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\System.Windows.Interactivity.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\protobuf-net.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\eMapy.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\eMapy.exe.config
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Extras.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\GalaSoft.MvvmLight.Platform.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\Microsoft.Maps.MapControl.WPF.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\BingMapsRESTToolkit.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\protobuf-net.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.csprojResolveAssemblyReference.cache
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.g.resources
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.Properties.Resources.resources
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.GenerateResource.Cache
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.csproj.CoreCompileInputs.cache
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.exe
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\obj\Release\StartupChooser.pdb
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\EntityFramework.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\EntityFramework.SqlServer.dll
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\EntityFramework.xml
+C:\Projekt\EMAPY\eMapyERP\StartupChooser\bin\Release\EntityFramework.SqlServer.xml

@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eMapy", "e-Mapy\eMapy.csproj", "{D743E920-4D31-4123-B7D3-A4DEA9AB423E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{17321D53-A153-45C1-8DCD-56E170E745EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupChooser", "StartupChooser\StartupChooser.csproj", "{29383528-39B8-4246-BA5B-751A08147162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eMapy1.0", "e-Mapy1_0\eMapy1.0.csproj", "{733FC216-2B15-4730-AE26-D33FFBF85216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4354A310-1223-4B64-A8F3-BC579BD4CC72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{553B0B39-7C59-4F0B-9E80-864976181924}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D743E920-4D31-4123-B7D3-A4DEA9AB423E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D743E920-4D31-4123-B7D3-A4DEA9AB423E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D743E920-4D31-4123-B7D3-A4DEA9AB423E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D743E920-4D31-4123-B7D3-A4DEA9AB423E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17321D53-A153-45C1-8DCD-56E170E745EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17321D53-A153-45C1-8DCD-56E170E745EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17321D53-A153-45C1-8DCD-56E170E745EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17321D53-A153-45C1-8DCD-56E170E745EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29383528-39B8-4246-BA5B-751A08147162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29383528-39B8-4246-BA5B-751A08147162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29383528-39B8-4246-BA5B-751A08147162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29383528-39B8-4246-BA5B-751A08147162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733FC216-2B15-4730-AE26-D33FFBF85216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733FC216-2B15-4730-AE26-D33FFBF85216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733FC216-2B15-4730-AE26-D33FFBF85216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733FC216-2B15-4730-AE26-D33FFBF85216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4354A310-1223-4B64-A8F3-BC579BD4CC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4354A310-1223-4B64-A8F3-BC579BD4CC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4354A310-1223-4B64-A8F3-BC579BD4CC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4354A310-1223-4B64-A8F3-BC579BD4CC72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{553B0B39-7C59-4F0B-9E80-864976181924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{553B0B39-7C59-4F0B-9E80-864976181924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{553B0B39-7C59-4F0B-9E80-864976181924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{553B0B39-7C59-4F0B-9E80-864976181924}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B0AE81C-017F-4590-B3DD-619709602403}
+	EndGlobalSection
+EndGlobal

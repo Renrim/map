@@ -1,0 +1,235 @@
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csprojResolveAssemblyReference.cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\App.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_Content.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.lref
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\MainWindow.g.cs
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\SqlServerSpatial110.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Images\earth v1.png
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.exe.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\CommonServiceLocator.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\protobuf-net.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\System.Windows.Interactivity.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll.config
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\protobuf-net.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\App.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\MainWindow.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Resources\ColorsOfPoints.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Utils\ColorsOfMarkers.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.baml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.g.resources
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.Properties.Resources.resources
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.GenerateResource.Cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.CoreCompileInputs.cache
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.exe
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\POSEGREGOWANE RZECZY\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\SqlServerSpatial110.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Images\earth v1.png
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.exe.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\eMapy.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\CommonServiceLocator.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\protobuf-net.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\System.Windows.Interactivity.dll
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll.config
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\bin\Debug\protobuf-net.xml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csprojResolveAssemblyReference.cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\MainWindow.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\App.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_Content.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.lref
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\App.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\MainWindow.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Resources\ColorsOfPoints.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Utils\ColorsOfMarkers.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.baml
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.g.resources
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.Properties.Resources.resources
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.GenerateResource.Cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.CoreCompileInputs.cache
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.exe
+F:\Projekty\Projekty\eMapy\E-Mapy_Sage_Podstawowa\eMapyERP\eMapyERP\e-Mapy\obj\Debug\eMapy.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\SqlServerSpatial110.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Images\earth v1.png
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.exe.config
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.exe
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\CommonServiceLocator.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\EntityFramework.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\protobuf-net.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\System.Windows.Interactivity.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataLayer.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll.config
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\EntityFramework.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\protobuf-net.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csprojResolveAssemblyReference.cache
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\MainWindow.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\App.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy_Content.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.cache
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.lref
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\App.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\MainWindow.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Resources\ColorsOfPoints.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Utils\ColorsOfMarkers.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\TopGridRowxaml.baml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.g.resources
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.Properties.Resources.resources
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.GenerateResource.Cache
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.CoreCompileInputs.cache
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.exe
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Core.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Platform.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Xaml.dll
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Core.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Core.xml
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Platform.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Xaml.pdb
+F:\Projekty\EMAPY\eMapyERP\e-Mapy\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\MainWindow.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\OptionsMenu.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\App.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.cache
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy_MarkupCompile.lref
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csprojResolveAssemblyReference.cache
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.exe.config
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.exe
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\eMapy.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\protobuf-net.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\System.Windows.Interactivity.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\BingMapsRESTToolkit.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\protobuf-net.xml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\App.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\MainWindow.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Resources\ColorsOfPoints.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Utils\ColorsOfMarkers.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\BorderWithDistanceAndDuration.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ButtonBase.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\CircularProgressBar.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\ToolTip.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\Views\OptionsMenu.baml
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.g.resources
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.Properties.Resources.resources
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.GenerateResource.Cache
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.csproj.CoreCompileInputs.cache
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.exe
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\obj\Debug\eMapy.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataAccess.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataModel.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataLayer.dll
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataAccess.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataModel.pdb
+C:\Projekt\EMAPY\eMapyERP\e-Mapy\bin\Debug\DataLayer.pdb
