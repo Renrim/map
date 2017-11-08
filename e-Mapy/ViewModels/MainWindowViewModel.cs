@@ -93,12 +93,12 @@ namespace eMapy.ViewModels
         public MainWindowViewModel()
         {
 
-          
 
 
+            MainManager.EnableDisableInterface(false);
             MainManager = new MainManager(this);
             LicenceManager = new LicenceManager(this);
-            MainManager.EnableDisableInterface(false);
+           
             AsyncCommandMapLoaded = new AsyncCommand(x => Task.Run(MainManager.GetAllPointsAsync));
             AsyncCommandOptymalization = new AsyncCommand(x => Task.Run(MainManager.OptymalizationAsync), IsBasicVersion); // IsEnabled binding
             AsyncCommandDrawRoad = new AsyncCommand(x => Task.Run(MainManager.DrawRoadAsync), IsBasicVersion); // IsEnabled binding
@@ -136,8 +136,7 @@ namespace eMapy.ViewModels
                 if (User.Licence.KindOfLicence == "Basic")
                 {
                     Licence = KindOfLicence.Basic;
-                    Licence = KindOfLicence.Basic;
-                    Licence = KindOfLicence.Basic;
+        
 
                 }
                 if (User.Licence.KindOfLicence == "Demo")
